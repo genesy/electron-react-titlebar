@@ -1,0 +1,98 @@
+.titlebar {
+  top: 1px;
+  left: 1px;
+  width: calc(100% - 2px);
+  $h: 25px;
+  height: $h;
+  min-height: $h;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  font-size: 13px;
+  line-height: 25px;
+
+  .is-fullscreen & {
+    display: none;
+  }
+  
+  .drag-bg {
+    -webkit-app-region: drag;
+    cursor: move;
+    position: absolute;
+    background: darken(rebeccapurple, 30%);
+    width: 100%;
+    z-index: 0;
+    height: $h;
+    .locked & {
+      display: none;
+    }
+  }
+  
+  .window-icon {
+    height: 20px;
+    width: 30px;
+    vertical-align: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 3px 0;
+    + span {
+      margin-left: 5px;
+      word-break: break-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      width: calc(100% - 40px);
+    }
+  }
+  
+  .buttons-container {
+    $p: 2px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    height: $h;
+    max-height: $h;
+    .buttons-container-left {
+      width: 100%;
+    }
+    .buttons-container-right {
+      min-width: 110px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.titlebar-button {
+  vertical-align: top;
+  cursor: default !important;
+  &:focus, &:active, & {
+    cursor: default;
+    outline: 0;
+    box-shadow: none !important;
+    border: 0;
+    background: transparent;
+    color: white;
+  }
+  &:hover {
+    cursor: default;
+    background: rgba(#fff, 0.05);
+  }
+  -webkit-app-region: no-drag;
+  border-radius: 0;
+  height: 25px;
+  width: 45px;
+  padding: 0;
+  height: 25px;
+  &:first-child {
+    margin-left:0;
+  }
+  &:last-child {
+    margin-right:0;
+  }
+}
